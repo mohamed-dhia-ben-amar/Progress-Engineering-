@@ -1,7 +1,7 @@
 <?php
 
-include "C:/xampp/htdocs/Login/connection.php";
-require_once 'C:/xampp/htdocs/Login/Cruds/Model/Profil.php';
+include "C:/xampp/htdocs/Login/views/connection.php";
+require_once 'C:/xampp/htdocs/Login/Model/Profil.php';
 
 class ProfilC
 {
@@ -21,6 +21,18 @@ class ProfilC
             $query->execute();
         } catch (Exception $e) {
             echo 'Erreur: ajouter profil' . $e->getMessage();
+        }
+    }
+
+    function afficherProfil()
+    {
+        $sql = "select Name from profil";
+        $db = connection::getConnexion();
+        try {
+            $query = $db->prepare($sql);
+            $query->execute();
+        } catch (Exception $e) {
+            echo 'Erreur: afficher profil' . $e->getMessage();
         }
     }
 }

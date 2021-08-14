@@ -17,9 +17,6 @@ function check_login($con)
 			return $user_data;
 		}
 	}
-
-	//redirect to login
-	header("Location: login.php");
 	die;
 
 }
